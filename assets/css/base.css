@@ -1,0 +1,83 @@
+/* =========================
+   PHẦN DÙNG CHUNG
+========================= */
+
+:root { /* Chỗ này mình để các biến màu và giá trị dùng đi dùng lại cho đỡ lặp */
+  --bg-top: #f3efe7; /* Màu sáng ở đầu nền */
+  --bg-bottom: #e1e5db; /* Màu nhạt hơn ở cuối nền */
+  --card-bg: #f8f5ef; /* Màu nền chính của card */
+  --surface: #fffdf8; /* Mặt nền sáng nhất */
+  --surface-2: #f1ede5; /* Mặt nền phụ để tạo phân tầng */
+  --text: #182126; /* Màu chữ chính */
+  --muted: #66707a; /* Màu chữ phụ, nhạt hơn */
+  --accent: #a44f3f; /* Màu nhấn chính */
+  --accent-dark: #7f3d31; /* Màu nhấn đậm hơn để hover */
+  --accent-soft: #e8c9b9; /* Màu nhấn nhẹ cho nền chip */
+  --line: #d9d3c7; /* Màu viền chính */
+  --line-strong: #bdb4a6; /* Màu viền đậm hơn */
+  --shadow: 0 18px 40px rgba(24, 33, 38, 0.08); /* Bóng đổ dùng lại nhiều nơi */
+  --shadow-tight: 0 10px 22px rgba(24, 33, 38, 0.06); /* Bóng ngắn hơn cho thẻ nhỏ */
+} /* Đóng phần biến chung */
+
+* { /* Áp dụng cho tất cả phần tử */
+  box-sizing: border-box; /* Để tính width, padding, border dễ hơn, đỡ bị lệch kích thước */
+} /* Đóng phần áp dụng chung */
+
+body { /* Kiểu nền tảng cho toàn bộ trang */
+  margin: 0; /* Bỏ khoảng trắng mặc định của trình duyệt */
+  font-family: Georgia, "Times New Roman", serif; /* Dùng nhóm font có cá tính hơn để bớt cảm giác template */
+  color: var(--text); /* Màu chữ mặc định */
+  background: var(--surface); /* Có nền mặc định rõ ràng cho toàn site */
+} /* Đóng phần body */
+
+input,
+button,
+textarea,
+select {
+  font: inherit; /* Giữ chữ trong form đồng bộ với phần còn lại */
+}
+
+a { /* Kiểu mặc định cho link */
+  color: var(--accent-dark); /* Cho link cùng tông màu với màu nhấn */
+  text-decoration: none; /* Bỏ gạch chân mặc định cho giao diện gọn hơn */
+  transition: color 0.2s ease; /* Hover đổi màu mượt hơn */
+} /* Đóng phần link */
+
+a:hover { /* Khi rê chuột vào link */
+  color: var(--accent); /* Hover thì sáng hơn một chút */
+  text-decoration: underline; /* Thêm gạch chân để người dùng biết chỗ này bấm được */
+} /* Đóng phần hover của link */
+
+button { /* Kiểu mặc định cho nút */
+  border: 1px solid transparent; /* Có border nền để hover nhìn chắc hơn */
+  border-radius: 999px; /* Dùng nút con nhộng cho cảm giác product hơn */
+  padding: 14px 22px; /* Chừa khoảng bên trong để nút dễ bấm */
+  font-size: 0.98rem; /* Cỡ chữ dễ đọc */
+  font-weight: 700; /* Chữ đậm hơn cho nổi bật */
+  letter-spacing: 0.02em; /* Chữ nút nhìn chắc tay hơn */
+  color: white; /* Chữ trắng để nổi trên nền màu */
+  background: var(--accent); /* Màu nền chính của nút */
+  cursor: pointer; /* Rê chuột vào sẽ hiện tay để biết là bấm được */
+  box-shadow: var(--shadow-tight); /* Tăng cảm giác vật thể của nút */
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease; /* Thêm chút chuyển động cho mượt */
+} /* Đóng phần nút */
+
+button:hover { /* Khi rê chuột vào nút */
+  background: var(--accent-dark); /* Đổi sang màu đậm hơn để nhìn có phản hồi */
+  box-shadow: 0 14px 28px rgba(127, 61, 49, 0.18); /* Hover nhìn có lực hơn */
+  transform: translateY(-1px); /* Nhích lên nhẹ cho cảm giác sống động hơn */
+} /* Đóng phần hover của nút */
+
+.eyebrow { /* Dòng chữ nhỏ ở trên tiêu đề */
+  margin: 0 0 8px; /* Chừa khoảng phía dưới */
+  font-size: 0.78rem; /* Cho nhỏ hơn tiêu đề */
+  font-weight: 700; /* Làm đậm để vẫn dễ thấy */
+  letter-spacing: 0.12em; /* Giãn chữ ra một chút cho đẹp */
+  text-transform: uppercase; /* Đổi sang in hoa cho giống kiểu nhãn */
+  color: var(--accent); /* Dùng màu nhấn để nổi hơn chữ thường */
+} /* Đóng phần eyebrow */
+
+.subtitle { /* Dòng mô tả phụ dưới tiêu đề */
+  color: var(--muted); /* Dùng màu nhạt hơn để nhìn ra đây là nội dung phụ */
+  line-height: 1.6; /* Tăng khoảng cách dòng để dễ đọc */
+} /* Đóng phần subtitle */

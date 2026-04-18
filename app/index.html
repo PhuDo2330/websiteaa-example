@@ -1,0 +1,91 @@
+<!DOCTYPE html> <!-- Báo cho trình duyệt biết đây là file HTML5 -->
+<html lang="en"> <!-- Bọc cả trang app. Để en vì nội dung giao diện hiện tại là tiếng Anh -->
+<head> <!-- Phần cấu hình của trang -->
+  <meta charset="UTF-8"> <!-- Giúp chữ hiển thị đúng -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Giúp giao diện app không bị bể trên màn hình nhỏ -->
+  <title>My App</title> <!-- Tên hiện trên tab -->
+  <link rel="stylesheet" href="../assets/css/base.css"> <!-- CSS dùng chung như màu, font, nút -->
+  <link rel="stylesheet" href="../assets/css/app.css"> <!-- CSS riêng cho layout của trang app -->
+</head> <!-- Đóng phần head -->
+<body class="app-body"> <!-- Gắn class riêng để CSS biết đây là trang app chứ không phải trang login -->
+  <main class="app-shell"> <!-- Khung lớn bao hết app. Class này để CSS chia sidebar với phần nội dung -->
+    <aside class="app-sidebar"> <!-- Sidebar bên trái. Dùng aside vì nó là phần phụ trợ cho nội dung chính -->
+      <div> <!-- Div này chỉ để gom tên app với menu cho dễ chia bố cục -->
+        <div class="app-brand"> <!-- Gom thương hiệu nhỏ ở đầu sidebar -->
+          <p class="eyebrow">Studio</p> <!-- Dòng phụ nhỏ -->
+          <h1 class="app-title">Northstar</h1> <!-- Tên lớn nhất của khu vực app nên dùng h1 -->
+          <p class="brand-note">A quieter workspace for active projects.</p> <!-- Mô tả ngắn giúp app có cá tính hơn -->
+        </div> <!-- Đóng nhóm thương hiệu -->
+
+        <nav class="app-nav"> <!-- Chỗ này là menu nên dùng nav -->
+          <a class="app-link active" href="index.html">Dashboard</a> <!-- Link đang đứng ở trang hiện tại nên có thêm class active -->
+          <a class="app-link" href="#">Projects</a> <!-- Link mẫu, chưa nối trang thật nên đang để # -->
+          <a class="app-link" href="#">Calendar</a> <!-- Link mẫu -->
+          <a class="app-link" href="#">Archive</a> <!-- Link mẫu -->
+          <a class="app-link" href="#">Settings</a> <!-- Link mẫu -->
+        </nav> <!-- Đóng phần menu -->
+      </div> <!-- Đóng nhóm trên của sidebar -->
+
+      <div class="sidebar-footer"> <!-- Gom phần cuối sidebar để có thêm thông tin nhỏ -->
+        <p class="status-label">Today</p> <!-- Nhãn nhỏ cho phần trạng thái -->
+        <p class="status-note">Three reviews waiting and one draft ready to ship.</p> <!-- Nội dung phụ ở cuối sidebar -->
+        <a class="logout-link" href="../index.html">Log out</a> <!-- Đây là link quay về login, không phải nút gửi form -->
+      </div> <!-- Đóng footer sidebar -->
+    </aside> <!-- Đóng sidebar -->
+
+    <section class="app-main"> <!-- Đây là phần nội dung chính bên phải -->
+      <header class="app-header"> <!-- Phần đầu của khu nội dung -->
+        <div> <!-- Gom tiêu đề với mô tả lại để dễ căn -->
+          <p class="eyebrow">Dashboard</p> <!-- Dòng phụ nhỏ -->
+          <h2>Good morning, Mina.</h2> <!-- Tiêu đề chính của phần nội dung, nên dùng h2 vì dưới h1 của app -->
+          <p class="subtitle">Your week is moving well. Here’s the work that still needs a decision today.</p> <!-- Mô tả ngắn cho khu này -->
+        </div> <!-- Đóng nhóm tiêu đề -->
+        <button type="button">Create brief</button> <!-- Để type button vì nút này không dùng để submit form nào hết -->
+      </header> <!-- Đóng phần đầu -->
+
+      <section class="stats-grid"> <!-- Khối chứa mấy thẻ số liệu nhanh -->
+        <article class="info-card"> <!-- Một thẻ nội dung nhỏ -->
+          <p class="card-label">In review</p> <!-- Nhãn của số liệu -->
+          <h3>06</h3> <!-- Con số nổi bật trong thẻ -->
+          <p class="card-note">Two need feedback before 4 PM</p> <!-- Ghi chú thêm cho số liệu -->
+        </article> <!-- Đóng thẻ thứ nhất -->
+
+        <article class="info-card"> <!-- Thẻ thứ hai -->
+          <p class="card-label">Open threads</p> <!-- Nhãn của số liệu -->
+          <h3>14</h3> <!-- Con số nổi bật -->
+          <p class="card-note">Five client replies came in overnight</p> <!-- Ghi chú thêm -->
+        </article> <!-- Đóng thẻ thứ hai -->
+
+        <article class="info-card"> <!-- Thẻ thứ ba -->
+          <p class="card-label">Live projects</p> <!-- Nhãn của số liệu -->
+          <h3>03</h3> <!-- Con số nổi bật -->
+          <p class="card-note">One launch window starts tomorrow</p> <!-- Ghi chú thêm -->
+        </article> <!-- Đóng thẻ thứ ba -->
+      </section> <!-- Đóng phần số liệu -->
+
+      <section class="content-grid"> <!-- Khu nội dung phía dưới gồm 2 khối -->
+        <article class="panel"> <!-- Khối bên trái -->
+          <div class="panel-heading"> <!-- Gom tiêu đề với mô tả của panel -->
+            <h3>Recent activity</h3> <!-- Tiêu đề của khối -->
+            <p class="panel-text">A tighter view of what changed across the studio this morning.</p> <!-- Mô tả nhỏ của khối -->
+          </div> <!-- Đóng heading của panel -->
+          <ul class="activity-list"> <!-- Dùng ul vì đây là danh sách nhiều dòng cùng kiểu -->
+            <li><strong>Landing page</strong><span>Hero copy approved and handed to dev.</span></li> <!-- Một dòng trong danh sách -->
+            <li><strong>Harbor campaign</strong><span>Client left notes on round two visuals.</span></li> <!-- Một dòng trong danh sách -->
+            <li><strong>Mobile audit</strong><span>Accessibility pass completed with two follow-ups.</span></li> <!-- Một dòng trong danh sách -->
+          </ul> <!-- Đóng danh sách -->
+        </article> <!-- Đóng khối bên trái -->
+
+        <article class="panel panel--contrast"> <!-- Khối bên phải -->
+          <div class="panel-heading"> <!-- Gom tiêu đề với mô tả -->
+            <h3>Next milestone</h3> <!-- Tiêu đề của khối -->
+            <p class="panel-text">Studio site refresh</p> <!-- Đoạn ghi chú ngắn -->
+          </div> <!-- Đóng heading -->
+          <p class="milestone-copy">Finalize the case-study grid, ship the revised navigation, and prep review links for Friday.</p> <!-- Nội dung chính của khối -->
+          <a class="panel-link" href="#">Open project board</a> <!-- Link hành động phụ -->
+        </article> <!-- Đóng khối bên phải -->
+      </section> <!-- Đóng khu nội dung dưới -->
+    </section> <!-- Đóng nội dung chính -->
+  </main> <!-- Đóng khung app -->
+</body> <!-- Đóng body -->
+</html> <!-- Kết thúc file HTML -->

@@ -1,0 +1,237 @@
+/* =========================
+   PHẦN TRANG APP
+========================= */
+
+.app-body {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0)),
+    linear-gradient(135deg, #efebe3, #e3e0d8 52%, #f7f3ec); /* Nền riêng cho app để tách cảm giác với trang login */
+}
+
+.app-shell {
+  min-height: 100vh; /* Cho app cao ít nhất bằng màn hình */
+  display: grid; /* Dùng grid để chia layout lớn */
+  grid-template-columns: 290px 1fr; /* Sidebar rộng hơn một chút để nhìn bớt chật */
+}
+
+.app-sidebar {
+  display: flex; /* Dùng flex để sắp xếp nội dung trong sidebar */
+  flex-direction: column; /* Xếp từ trên xuống dưới */
+  justify-content: space-between; /* Đẩy nút logout xuống cuối */
+  padding: 30px 26px; /* Chừa khoảng bên trong */
+  background: #f7f3eb; /* Nền sáng hơn để sidebar tách khỏi phần nội dung */
+  border-right: 1px solid var(--line); /* Thêm đường ngăn nhẹ giữa menu và nội dung */
+}
+
+.app-title {
+  margin: 0; /* Bỏ margin trên, chừa khoảng dưới */
+  font-size: 2.4rem; /* Làm tên app lớn hơn để nổi bật */
+  line-height: 0.95; /* Tên app nhìn có cá tính hơn */
+}
+
+.app-brand {
+  margin-bottom: 34px; /* Tách thương hiệu với menu */
+}
+
+.brand-note,
+.status-note {
+  margin: 10px 0 0; /* Giữ khoảng cách với phần trên */
+  color: var(--muted); /* Dùng màu phụ */
+  line-height: 1.6; /* Dễ đọc hơn */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Phần phụ dùng sans cho rõ */
+}
+
+.status-label {
+  margin: 0; /* Bỏ margin mặc định */
+  font-size: 0.78rem; /* Nhỏ hơn nội dung chính */
+  font-weight: 700; /* Làm đậm để giống nhãn */
+  letter-spacing: 0.12em; /* Tạo cảm giác như label */
+  text-transform: uppercase; /* In hoa cho nhãn */
+  color: var(--accent); /* Dùng màu nhấn */
+}
+
+.app-nav {
+  display: grid; /* Xếp các link menu theo hàng dọc */
+  gap: 8px; /* Chừa khoảng giữa từng link */
+}
+
+.app-link,
+.logout-link {
+  display: block; /* Cho link chiếm trọn hàng để dễ bấm */
+  padding: 13px 15px; /* Chừa khoảng trong link */
+  border-radius: 16px; /* Bo góc */
+  color: var(--text); /* Giữ cùng màu chữ chính */
+  background: transparent; /* Ban đầu chưa tô nền */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Menu dùng sans để gọn và hiện đại hơn */
+  font-weight: 600; /* Tăng độ chắc tay cho menu */
+}
+
+.app-link:hover,
+.logout-link:hover,
+.app-link.active {
+  background: #ece4d7; /* Hover hoặc active thì tô nền để người dùng thấy rõ hơn */
+  text-decoration: none; /* Không cho gạch chân để hợp kiểu menu */
+}
+
+.app-link.active {
+  border-left: 4px solid var(--accent); /* Active có điểm neo rõ hơn */
+  padding-left: 11px; /* Bù lại phần border bên trái */
+}
+
+.sidebar-footer {
+  padding-top: 24px; /* Tách khỏi menu */
+  border-top: 1px solid var(--line); /* Chia rõ phần cuối sidebar */
+}
+
+.app-main {
+  padding: 40px; /* Chừa khoảng quanh nội dung */
+  display: grid; /* Xếp các khối nội dung theo chiều dọc */
+  gap: 26px; /* Chừa khoảng giữa các khối */
+}
+
+.app-main .subtitle {
+  margin: 10px 0 0; /* Cho mô tả nằm gần tiêu đề hơn */
+  max-width: 38rem; /* Không cho dòng chạy quá dài */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Dùng sans cho phần mô tả điều khiển */
+}
+
+.app-header {
+  display: flex; /* Đặt phần tiêu đề và nút trên cùng một hàng */
+  align-items: flex-end; /* Căn xuống dưới để nhịp đẹp hơn */
+  justify-content: space-between; /* Một bên tiêu đề, một bên nút */
+  gap: 20px; /* Có khoảng cách phòng khi bị bó */
+}
+
+.app-header h2 {
+  margin: 0; /* Bỏ margin mặc định để dễ căn */
+  font-size: clamp(2.2rem, 4vw, 3.2rem); /* Làm tiêu đề phần nội dung lớn hơn */
+  line-height: 0.98; /* Giúp tiêu đề chắc hơn */
+}
+
+.stats-grid {
+  display: grid; /* Dùng grid cho hàng thẻ số liệu */
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* Chia đều thành 3 cột */
+  gap: 18px; /* Chừa khoảng giữa các thẻ */
+}
+
+.info-card,
+.panel {
+  padding: 26px; /* Chừa khoảng bên trong */
+  border-radius: 28px; /* Bo góc cho mềm */
+  background: rgba(255, 252, 246, 0.92); /* Nền sáng ấm hơn */
+  border: 1px solid var(--line); /* Viền thật để bớt kiểu card AI */
+  box-shadow: var(--shadow-tight); /* Thêm bóng nhẹ cho có chiều sâu */
+}
+
+.card-label {
+  margin: 0 0 10px; /* Tách nó khỏi số liệu phía dưới */
+  color: var(--muted); /* Dùng màu phụ vì đây chỉ là nhãn */
+  font-size: 0.82rem; /* Chữ nhỏ hơn */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Nhãn dùng sans cho gọn */
+  font-weight: 700; /* Nhìn rõ hơn */
+  letter-spacing: 0.08em; /* Có cảm giác dữ liệu hơn */
+  text-transform: uppercase; /* Đưa về kiểu nhãn dữ liệu */
+}
+
+.info-card h3,
+.panel h3 {
+  margin: 0; /* Bỏ margin mặc định */
+  font-size: 2.1rem; /* Cho tiêu đề/số liệu nổi bật hơn */
+}
+
+.card-note,
+.panel-text {
+  margin: 10px 0 0; /* Chừa khoảng ở trên */
+  color: var(--muted); /* Dùng màu phụ */
+  line-height: 1.5; /* Dễ đọc hơn */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Đọc nhanh hơn cho nội dung phụ */
+}
+
+.content-grid {
+  display: grid; /* Chia phần nội dung dưới thành 2 cột */
+  grid-template-columns: minmax(0, 1.6fr) minmax(280px, 0.9fr); /* Bên trái rộng hơn bên phải */
+  gap: 18px; /* Chừa khoảng giữa 2 khối */
+}
+
+.activity-list {
+  margin: 18px 0 0; /* Tách danh sách ra khỏi tiêu đề */
+  padding: 0; /* Không dùng bullet mặc định nữa */
+  list-style: none; /* Tự style từng dòng để bớt template */
+  display: grid; /* Chia đều các dòng hoạt động */
+  gap: 12px; /* Khoảng cách giữa các dòng */
+}
+
+.activity-list li {
+  padding: 16px 18px; /* Tạo nhịp bên trong */
+  border-radius: 18px; /* Bo góc đồng bộ */
+  background: var(--surface); /* Mỗi hoạt động như một dải nhỏ */
+  border: 1px solid var(--line); /* Viền rõ ràng hơn */
+  display: grid; /* Tách tiêu đề và mô tả */
+  gap: 6px; /* Khoảng cách giữa hai dòng */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Nội dung hoạt động dùng sans */
+}
+
+.activity-list strong {
+  color: var(--text); /* Tên hoạt động đậm hơn */
+  font-size: 0.98rem; /* Nhỏ gọn nhưng rõ */
+}
+
+.activity-list span {
+  color: var(--muted); /* Mô tả dùng màu phụ */
+}
+
+.panel-heading {
+  display: grid; /* Gom heading gọn lại */
+  gap: 4px; /* Khoảng cách giữa tiêu đề và mô tả */
+}
+
+.panel--contrast {
+  background: linear-gradient(180deg, #31433a, #4a5c49); /* Tạo một panel nổi bật hơn */
+  color: #f5f0e8; /* Chữ sáng để đọc trên nền đậm */
+  border-color: rgba(49, 67, 58, 0.72); /* Viền ăn nhập với nền */
+}
+
+.panel--contrast .panel-text,
+.panel--contrast .milestone-copy,
+.panel--contrast .panel-link {
+  color: rgba(245, 240, 232, 0.84); /* Giữ chữ phụ sáng nhưng dịu */
+}
+
+.milestone-copy {
+  margin: 20px 0; /* Tách nội dung chính khỏi heading và link */
+  line-height: 1.7; /* Dễ đọc hơn */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Nội dung chính dùng sans */
+}
+
+.panel-link {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Link hành động phụ dùng sans */
+  font-weight: 700; /* Tạo độ chắc tay */
+}
+
+@media (max-width: 820px) {
+  .app-shell {
+    grid-template-columns: 1fr; /* Màn hình nhỏ thì cho sidebar nằm trên, nội dung nằm dưới */
+  }
+
+  .app-sidebar {
+    gap: 24px; /* Có thêm khoảng cách để nhìn thoáng hơn */
+  }
+
+  .stats-grid,
+  .content-grid {
+    grid-template-columns: 1fr; /* Các card xếp xuống một cột cho đỡ chật */
+  }
+
+  .app-header {
+    flex-direction: column; /* Tiêu đề với nút xếp dọc khi màn hình hẹp */
+    align-items: flex-start; /* Căn trái cho tự nhiên */
+  }
+
+  .app-main {
+    padding: 28px 20px; /* Giảm lề cho màn hình nhỏ */
+  }
+
+  .app-sidebar {
+    padding: 24px 20px; /* Giảm lề sidebar cho mobile */
+  }
+}

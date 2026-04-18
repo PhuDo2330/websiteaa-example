@@ -1,0 +1,37 @@
+<!DOCTYPE html> <!-- Báo cho trình duyệt biết đây là HTML5 -->
+<html lang="en"> <!-- Bọc cả trang. Vẫn để tiếng Anh vì chữ trên giao diện đang là tiếng Anh -->
+<head> <!-- Phần cấu hình của trang -->
+  <meta charset="UTF-8"> <!-- Dùng UTF-8 để tránh lỗi chữ -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Có dòng này thì giao diện trên điện thoại sẽ dễ nhìn hơn -->
+  <title>Create Account</title> <!-- Tên của trang trên tab -->
+  <link rel="stylesheet" href="../assets/css/base.css"> <!-- CSS dùng chung cho toàn bộ project -->
+  <link rel="stylesheet" href="../assets/css/auth.css"> <!-- CSS riêng cho nhóm trang auth -->
+</head> <!-- Đóng phần head -->
+<body> <!-- Bắt đầu phần nội dung hiển thị -->
+  <main class="login-page"> <!-- Dùng lại khung login-page để không phải viết lại cách căn giữa -->
+    <section class="login-card"> <!-- Gom toàn bộ form vào một card cho gọn -->
+      <p class="eyebrow">Join us</p> <!-- Dòng phụ nhỏ ở trên -->
+      <h1>Create account</h1> <!-- Tiêu đề chính -->
+      <p class="subtitle">Fill in your details below to create a new account.</p> <!-- Dòng hướng dẫn ngắn -->
+
+      <form class="login-form"> <!-- Dùng form để gom tất cả ô nhập của phần tạo tài khoản -->
+        <label for="name">Full name</label> <!-- Label của ô họ tên -->
+        <input id="name" type="text" placeholder="Your full name" required> <!-- `type="text"` vì đây là chữ bình thường. `required` vì ô này không nên bỏ trống -->
+
+        <label for="signup-email">Email</label> <!-- Label của ô email -->
+        <input id="signup-email" type="email" placeholder="you@example.com" required> <!-- Dùng email để trình duyệt hiểu đúng loại dữ liệu -->
+
+        <label for="signup-password">Password</label> <!-- Label của ô mật khẩu -->
+        <input id="signup-password" type="password" placeholder="Create a password" required> <!-- Dùng password để che ký tự khi gõ -->
+
+        <label for="confirm-password">Confirm password</label> <!-- Label của ô nhập lại mật khẩu -->
+        <input id="confirm-password" type="password" placeholder="Re-enter your password" required> <!-- Ô này để người dùng gõ lại mật khẩu một lần nữa -->
+
+        <button type="submit">Create account</button> <!-- Nút này dùng để gửi toàn bộ form đăng ký -->
+      </form> <!-- Đóng form -->
+
+      <p class="signup-text">Already have an account? <a href="../index.html">Back to login</a></p> <!-- Nếu đã có tài khoản rồi thì quay lại trang login -->
+    </section> <!-- Đóng card -->
+  </main> <!-- Đóng phần chính -->
+</body> <!-- Đóng body -->
+</html> <!-- Kết thúc file HTML -->

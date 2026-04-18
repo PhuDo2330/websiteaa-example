@@ -1,0 +1,62 @@
+<!DOCTYPE html> <!-- Dòng này để trình duyệt biết mình đang viết HTML5 -->
+<html lang="en"> <!-- Bọc cả trang lại. Mình để `lang="en"` vì chữ trên giao diện đang là tiếng Anh -->
+<head> <!-- Phần này chứa thông tin cài đặt cho trang, không phải phần nội dung chính -->
+  <meta charset="UTF-8"> <!-- Dùng UTF-8 để chữ không bị lỗi, nhất là khi có dấu hay ký tự đặc biệt -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Có dòng này thì lên điện thoại trang mới co giãn đúng, không bị quá nhỏ -->
+  <title>Login</title> <!-- Tên hiện trên tab của trình duyệt -->
+  <link rel="stylesheet" href="assets/css/base.css"> <!-- Gắn file CSS dùng chung như màu, font, nút -->
+  <link rel="stylesheet" href="assets/css/auth.css"> <!-- Gắn thêm CSS riêng cho nhóm trang đăng nhập -->
+</head> <!-- Đóng phần head -->
+<body> <!-- Từ đây trở xuống là phần người dùng nhìn thấy -->
+
+  <!-- Khối chính của trang -->
+  <main class="login-page"> <!-- Dùng `main` vì đây là phần nội dung chính. Class này để CSS căn giữa cả khối login -->
+
+    <!-- Thẻ đăng nhập -->
+    <section class="login-card login-card--split"> <!-- Mình đổi card thành bố cục 2 phần để trang nhìn mới hơn nhưng vẫn dễ đọc -->
+      <div class="login-showcase"> <!-- Cột trái để tạo điểm nhấn thị giác và giới thiệu ngắn -->
+        <p class="eyebrow">Member access</p> <!-- Dòng chữ nhỏ ở trên cho giao diện nhìn có lớp lang hơn -->
+        <h1>Welcome back.</h1> <!-- Đây là tiêu đề chính của trang nên dùng h1 -->
+        <p class="subtitle">Sign in to continue where you left off and open your workspace in one click.</p> <!-- Dòng giải thích ngắn nằm dưới tiêu đề -->
+
+        <div class="feature-list"> <!-- Gom vài ý ngắn để cột trái không bị trống -->
+          <p>Track your progress across lessons.</p> <!-- Ý ngắn thứ nhất -->
+          <p>Jump back into your recent activity.</p> <!-- Ý ngắn thứ hai -->
+          <p>Keep everything synced in one place.</p> <!-- Ý ngắn thứ ba -->
+        </div> <!-- Đóng nhóm nội dung phụ -->
+      </div> <!-- Đóng cột giới thiệu -->
+
+      <div class="login-panel"> <!-- Cột phải chứa form chính -->
+        <p class="panel-kicker">Sign in</p> <!-- Nhãn nhỏ để phần form có tiêu điểm riêng -->
+
+        <!-- Form đăng nhập -->
+        <form class="login-form" action="app/index.html"> <!-- Dùng form để gom mấy ô nhập lại. `action` là chỗ sẽ đi tới khi bấm nút submit -->
+
+          <!-- Ô email -->
+          <label for="email">Email</label> <!-- Label này để nói cho người dùng biết ô dưới là ô email. `for` nối với id ở input -->
+          <input id="email" type="email" placeholder="you@example.com" required> <!-- `id="email"` để label nối đúng ô này. `type="email"` để trình duyệt biết đây là email. `placeholder` là chữ gợi ý mờ. `required` là bắt buộc nhập -->
+
+          <!-- Ô mật khẩu -->
+          <label for="password">Password</label> <!-- Cũng giống ô trên, label này nối với input mật khẩu -->
+          <input id="password" type="password" placeholder="Enter your password" required> <!-- `type="password"` để gõ vào thì chữ bị che đi. Vẫn dùng `required` để không cho gửi form khi bỏ trống -->
+
+          <!-- Hàng tùy chọn thêm -->
+          <div class="form-row"> <!-- Khối này chỉ để chia bố cục cho checkbox và link quên mật khẩu nằm cùng hàng -->
+            <label class="checkbox"> <!-- Mình bọc checkbox trong label để bấm vào chữ cũng tick được -->
+              <input type="checkbox"> <!-- Checkbox dùng cho kiểu chọn có/không -->
+              <span>Keep me signed in</span> <!-- Chữ đi cùng checkbox -->
+            </label> <!-- Đóng nhóm checkbox -->
+            <a href="auth/forgot-password.html">Forgot password?</a> <!-- Đây là link nên dùng thẻ a. Bấm vào sẽ qua trang quên mật khẩu -->
+          </div> <!-- Đóng hàng tùy chọn -->
+
+          <!-- Nút gửi form -->
+          <button type="submit">Continue</button> <!-- Để `type="submit"` vì nút này có nhiệm vụ gửi form đi -->
+        </form> <!-- Đóng form -->
+
+        <!-- Dòng chuyển sang tạo tài khoản -->
+        <p class="signup-text">Need a new account? <a href="auth/create-account.html">Create one</a></p> <!-- Không phải nút submit, chỉ là link qua trang tạo tài khoản -->
+      </div> <!-- Đóng cột form -->
+    </section> <!-- Đóng thẻ login -->
+  </main> <!-- Đóng phần chính -->
+</body> <!-- Đóng body -->
+</html> <!-- Kết thúc file HTML -->

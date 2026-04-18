@@ -1,0 +1,205 @@
+/* =========================
+   PHẦN TRANG AUTH
+========================= */
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(164, 79, 63, 0.15), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(62, 97, 84, 0.12), transparent 28%),
+    linear-gradient(145deg, #f4f0e8, #e8e5dd 52%, #f7f4ee); /* Nền dịu hơn để bớt cảm giác AI bóng bẩy */
+}
+
+/* Khung lớn của trang login / forgot / create account */
+.login-page {
+  min-height: 100vh; /* Cho khung này cao ít nhất bằng màn hình để căn giữa đẹp */
+  display: grid; /* Dùng grid vì căn giữa nhanh gọn */
+  place-items: center; /* Căn giữa cả ngang lẫn dọc */
+  padding: 32px; /* Chừa khoảng sát mép, để màn hình nhỏ không bị dính lề */
+}
+
+/* Card trắng chứa form */
+.login-card {
+  width: min(100%, 420px); /* Cho card co theo màn hình nhưng không vượt quá 420px */
+  padding: 36px; /* Tạo khoảng trống bên trong cho dễ thở */
+  border-radius: 28px; /* Bo góc cho mềm hơn */
+  background: rgba(255, 251, 244, 0.96); /* Nền sáng để card nổi lên khỏi background */
+  box-shadow: var(--shadow); /* Thêm bóng để card có chiều sâu */
+  border: 1px solid rgba(217, 211, 199, 0.9); /* Viền thật hơn thay vì kính mờ */
+}
+
+h1 {
+  margin: 0; /* Bỏ margin mặc định để dễ kiểm soát khoảng cách hơn */
+  font-size: clamp(2rem, 4vw, 3rem); /* Cho tiêu đề đủ lớn để nổi bật */
+  line-height: 1.05; /* Tiêu đề nhìn gọn và chắc hơn */
+}
+
+.subtitle {
+  margin: 10px 0 24px; /* Chừa khoảng vừa phải giữa tiêu đề, mô tả và form */
+}
+
+.login-card--split {
+  width: min(100%, 980px); /* Card login chính rộng hơn để chứa bố cục 2 cột */
+  padding: 0; /* Bỏ padding chung để từng cột tự quản khoảng cách */
+  display: grid; /* Chia card thành 2 cột */
+  grid-template-columns: 1.05fr 0.95fr; /* Cột trái hơi rộng hơn để tạo nhịp thị giác */
+  overflow: hidden; /* Giữ góc bo khi có nền riêng cho từng cột */
+}
+
+.login-showcase {
+  padding: 48px; /* Tạo khoảng thở trong cột giới thiệu */
+  background:
+    linear-gradient(180deg, rgba(40, 54, 54, 0.96), rgba(74, 92, 73, 0.88)),
+    linear-gradient(135deg, #32483d, #7a6a58); /* Cột trái có nền đậm nhưng bớt neon hơn */
+  color: #f7f4ec; /* Đổi chữ sang sáng để đọc được trên nền tối */
+  display: flex; /* Xếp nội dung theo cột */
+  flex-direction: column; /* Nội dung nằm dọc */
+  justify-content: space-between; /* Dàn đều để cột nhìn cân */
+  gap: 28px; /* Giữ khoảng cách giữa các khối */
+}
+
+.login-showcase .eyebrow {
+  color: #e8d1b2; /* Dùng màu sáng ấm hơn cho nền tối */
+}
+
+.login-showcase .subtitle {
+  color: rgba(248, 250, 252, 0.8); /* Chữ phụ dịu hơn nhưng vẫn đủ tương phản */
+  max-width: 28rem; /* Giới hạn chiều dài dòng cho dễ đọc */
+}
+
+.feature-list {
+  display: grid; /* Xếp các ý ngắn theo cột */
+  gap: 12px; /* Khoảng cách giữa từng ý */
+}
+
+.feature-list p {
+  margin: 0; /* Bỏ margin mặc định của thẻ p */
+  padding: 14px 16px; /* Tạo cảm giác như các tấm note nhỏ */
+  border-radius: 16px; /* Bo góc cho đồng bộ */
+  background: rgba(255, 255, 255, 0.06); /* Nền nhẹ hơn */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Viền để phân tách từng dòng */
+}
+
+.login-panel {
+  padding: 48px 42px; /* Khoảng thở trong phần form */
+  display: flex; /* Dùng flex để căn phần form gọn hơn */
+  flex-direction: column; /* Xếp các phần theo chiều dọc */
+  justify-content: center; /* Giữ form nằm cân giữa cột */
+}
+
+.panel-kicker {
+  margin: 0 0 18px; /* Chừa khoảng dưới trước form */
+  font-size: 0.82rem; /* Nhỏ hơn tiêu đề chính */
+  font-weight: 700; /* Làm đậm để giống nhãn */
+  letter-spacing: 0.12em; /* Tạo cảm giác editorial hơn */
+  text-transform: uppercase; /* In hoa cho giống nhãn */
+  color: var(--muted); /* Dùng màu phụ vì đây là thông tin phụ */
+}
+
+.signup-text,
+.login-panel h1,
+.login-panel h2,
+.login-panel h3,
+.login-panel p,
+.login-panel label,
+.login-panel input,
+.signup-text {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; /* Phần form vẫn giữ sans để đọc nhanh hơn */
+}
+
+/* Form chính */
+.login-form {
+  display: grid; /* Xếp các ô theo chiều dọc */
+  gap: 12px; /* Chừa khoảng đều giữa từng dòng */
+}
+
+.login-form label {
+  font-size: 0.95rem; /* Nhỏ hơn tiêu đề nhưng vẫn dễ đọc */
+  font-weight: 600; /* Hơi đậm để nhìn ra đây là nhãn */
+}
+
+.login-form input {
+  width: 100%; /* Ô nhập kéo hết ngang card cho gọn */
+  padding: 15px 16px; /* Có khoảng bên trong để gõ thoải mái */
+  border: 1px solid var(--line); /* Viền nhẹ để thấy ranh giới ô nhập */
+  border-radius: 16px; /* Bo góc cho cùng phong cách với card */
+  font-size: 1rem; /* Cỡ chữ chuẩn, dễ đọc */
+  background: #fffdfa; /* Tăng độ tách biệt với nền card */
+  outline: none; /* Bỏ viền mặc định để mình tự style focus */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease; /* Focus nhìn mượt hơn */
+}
+
+.login-form input:focus {
+  background: #ffffff; /* Focus vào thì ô sáng hơn một chút */
+  border-color: #6f7b63; /* Khi bấm vào thì đổi viền để người dùng biết mình đang đứng ở ô nào */
+  box-shadow: 0 0 0 4px rgba(111, 123, 99, 0.12); /* Thêm vòng sáng nhẹ cho focus rõ hơn */
+}
+
+/* Hàng chứa checkbox với link */
+.form-row {
+  display: flex; /* Đặt 2 phần nằm ngang với nhau */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  justify-content: space-between; /* Một bên checkbox, một bên link */
+  gap: 16px; /* Có khoảng cách để đỡ dính */
+  font-size: 0.92rem; /* Chữ nhỏ hơn chút vì đây là phần phụ */
+}
+
+.checkbox {
+  display: flex; /* Cho ô tick và chữ đi cùng một hàng */
+  align-items: center; /* Căn thẳng hàng */
+  gap: 8px; /* Cách nhau chút cho dễ nhìn */
+  font-weight: 500; /* Hơi đậm hơn chữ thường */
+  color: var(--muted); /* Dùng màu dịu hơn */
+}
+
+.checkbox input {
+  width: 16px; /* Kích thước checkbox */
+  height: 16px; /* Kích thước checkbox */
+  margin: 0; /* Bỏ margin mặc định để khỏi lệch hàng */
+}
+
+button {
+  margin-top: 10px; /* Chừa thêm chút khoảng cách phía trên nút */
+  width: 100%; /* Nút chính kéo hết ngang để rõ hành động chính */
+}
+
+.signup-text {
+  margin: 22px 0 0; /* Tách nó khỏi form một chút */
+  text-align: center; /* Đưa đoạn này ra giữa cho cân */
+  color: var(--muted); /* Dùng màu phụ vì đây chỉ là dòng hướng dẫn thêm */
+}
+
+/* Chỉnh lại cho màn hình nhỏ */
+@media (max-width: 860px) {
+  .login-card--split {
+    grid-template-columns: 1fr; /* Xuống 1 cột để tablet và mobile đỡ chật */
+  }
+
+  .login-showcase,
+  .login-panel {
+    padding: 34px 28px; /* Giảm padding khi màn hình nhỏ hơn */
+  }
+}
+
+@media (max-width: 480px) {
+  .login-page {
+    padding: 18px; /* Mobile nhỏ thì giảm khoảng cách ngoài cùng */
+  }
+
+  .login-card {
+    padding: 28px 22px; /* Màn hình nhỏ thì giảm padding để card không bị chật */
+  }
+
+  .login-card--split {
+    padding: 0; /* Giữ nguyên bố cục của card 2 cột đã đổi thành 1 cột */
+  }
+
+  .form-row {
+    flex-direction: column; /* Cho xuống hàng để khỏi bị bó */
+    align-items: flex-start; /* Căn trái cho tự nhiên hơn trên mobile */
+  }
+
+  .login-showcase,
+  .login-panel {
+    padding: 28px 22px; /* Mobile rất nhỏ thì giảm tiếp padding hai cột */
+  }
+}
